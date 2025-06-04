@@ -32,16 +32,19 @@ function App() {
           const stat = player.stat;
           const info = player.player;
           const team = player.team;
+          const position = player.position;
   
           return {
             Name: info.fullName,
             PlayerId: info.id,
             TeamId: team.id,
             Team: team.name || "N/A",
+            Position: position.abbreviation,
             Games: stat.gamesPlayed,
-            AB: stat.atBats,
+            PA: stat.plateAppearances,
             Hits: stat.hits,
             HR: stat.homeRuns,
+            Runs: stat.runs,
             AVG: stat.avg,
             OBP: stat.obp,
             OPS: stat.ops,
@@ -64,20 +67,24 @@ function App() {
   
   
   return (
-    <div className="App">
-      {players.length ? players.map((player, index)=>{
-        return (
-        <PlayerCard
-          key={index}
-          rank={index}
-          playerId={player.PlayerId}
-          teamId={player.TeamId}
-          name={player.Name}
-          hr={player.HR}
-          stats={player}
-        />);
-      }) :
-      <p></p>}
+    <div>
+      <ol className="App">
+        {players.length ? players.map((player, index)=>{
+          return (
+            <li>
+              <PlayerCard
+                key={index}
+                rank={index}
+                playerId={player.PlayerId}
+                teamId={player.TeamId}
+                name={player.Name}
+                stats={player}
+              />
+            </li>
+          );
+        }) :
+        <p></p>}
+      </ol>
     </div>
   );
 }
