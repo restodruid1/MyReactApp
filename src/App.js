@@ -61,11 +61,6 @@ function App() {
     getMLBPlayerStats();
   },[]);
   
-  
-  
-  
-  
-  
   return (
     <div>
       <ol className="App">
