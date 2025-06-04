@@ -8,11 +8,15 @@ function App() {
   
   React.useEffect(()=>{
     async function getMLBPlayerStats() {
+      const test = await fetch("https://statsapi.mlb.com/api/v1/teams/");
+      const moreData = await test.json();
+      console.log(moreData);
+      
       const params = {
         stats:"season",
         group:"hitting",
         gameType:"R",
-        limit:"50",
+        limit:"100",
         sortStat:"homeruns",
         playerPool:"qualified"
       }
@@ -21,16 +25,19 @@ function App() {
       try {
         const response = await fetch(url);
         const data = await response.json();
-        // console.log(data);
+        console.log(data);
         
         const playersData = data.stats[0].splits; 
         const results = playersData.map(player => {
           const stat = player.stat;
           const info = player.player;
+          const team = player.team;
   
           return {
             Name: info.fullName,
-            Team: player.team.name || "N/A",
+            PlayerId: info.id,
+            TeamId: team.id,
+            Team: team.name || "N/A",
             Games: stat.gamesPlayed,
             AB: stat.atBats,
             Hits: stat.hits,
@@ -62,11 +69,15 @@ function App() {
         return (
         <PlayerCard
           key={index}
+          rank={index}
+          playerId={player.PlayerId}
+          teamId={player.TeamId}
           name={player.Name}
           hr={player.HR}
+          stats={player}
         />);
       }) :
-      <p>"hello world"</p>}
+      <p></p>}
     </div>
   );
 }
