@@ -2,8 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 function Dropdown(props){
-    const propsArr = [props];
-    
+    //const propsArr = [props];
+    //console.log(propsArr[0]);
+    console.log(props.data);
     
     return (
         <div 
@@ -14,9 +15,11 @@ function Dropdown(props){
                 width:"200px",
                 }}
         >
-            {propsArr.map((prop)=>{
+            {props.data.map((prop, index)=>{
                 return (
-                    <p>{prop.title} <Link to={prop.route}>{prop.content}</Link></p>
+                    <p key={index}>{prop.title} <Link to={prop.route} state={{year:prop.year}}>
+                        {prop.year}</Link>
+                    </p>
                 )
             })}
         </div> 
