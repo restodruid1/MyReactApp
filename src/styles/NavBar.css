@@ -1,0 +1,15 @@
+.navbar-home {
+    display: flex;
+    justify-content: start;
+    align-items: end;
+    background-color: blue;
+    margin: 0% 25%;
+    gap: 20px;
+}
+.nav-items {
+    border: 2px solid black;
+}
+
+.dropdown {
+    background-color: purple;
+}
