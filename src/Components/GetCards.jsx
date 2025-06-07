@@ -1,6 +1,7 @@
 import React from "react";
 import PlayerCard from "./PlayerCard";
 import { useLocation } from 'react-router-dom';
+import NavBar from "./NavBar";
 
 function GetCards(){
     const [players, setPlayers] = React.useState([]);
@@ -57,12 +58,13 @@ function GetCards(){
         }
       }
       getMLBPlayerStats();
-    },[]);
+    },[location.state]); //Reruns when navbar url gets clicked
     
     
     
     return (
     <div>
+      <NavBar/>
         <ol className="App">
         {players.length ? players.map((player, index)=>{
             return (

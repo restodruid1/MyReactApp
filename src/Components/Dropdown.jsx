@@ -11,8 +11,9 @@ function Dropdown(props){
             className="dropdown" 
             style={{
                 position:"absolute",
-                height:"100px",
+                minHeight: "fit-content",
                 width:"200px",
+                zIndex:5,
                 }}
         >
             {props.data.map((prop, index)=>{
