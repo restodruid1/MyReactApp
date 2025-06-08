@@ -45,6 +45,8 @@
   border-radius: 50%;
   border: 4px solid black;
   background-color: white;
+  width: 60px;
+  height: 60px;
   display: inline;
   margin-left: 7px;
   margin-top: 7px;
