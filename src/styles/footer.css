@@ -1,0 +1,12 @@
+footer{
+    /* background-color: navy; */
+    text-align: center;
+    /* color: white; */
+}
+
+.link:link {
+    color: red;
+}
+.link:visited {
+    color: black;
+}

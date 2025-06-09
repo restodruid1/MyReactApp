@@ -1,8 +1,10 @@
 import logo from './logo.svg';
 import './styles/App.css';
 import React from "react";
-import GetCards from './Components/GetCards';
+import GetCards from './Components/GetPositionPlayerCards';
 import Home from './Components/Home';
+import NavBar from './Components/NavBar';
+import Footer from './Components/Footer';
 
 import {
   BrowserRouter,
@@ -16,10 +18,12 @@ import {
 function App() {
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path='/' element={<Home />}/>
-        <Route path='/hitters' element={<GetCards />}/>
-      </Routes>
+      <NavBar />
+        <Routes>
+          <Route path='/' element={<Home />}/>
+          <Route path='/hitters' element={<GetCards />}/>
+        </Routes>
+      <Footer />
     </BrowserRouter>
   )
 }

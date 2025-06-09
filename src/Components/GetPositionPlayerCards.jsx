@@ -3,7 +3,7 @@ import PlayerCard from "./PlayerCard";
 import { useLocation } from 'react-router-dom';
 import NavBar from "./NavBar";
 
-function GetCards(){
+function GetCards(props){
     const [players, setPlayers] = React.useState([]);
     const location = useLocation();
     const { year } = location.state || {};
@@ -15,9 +15,9 @@ function GetCards(){
           group:"hitting",
           season: year || "2025",
           gameType:"R",
-          limit:"100",
-          sortStat:"homeruns",
-          playerPool:"qualified"
+          limit: props.limit || "50",
+          sortStat: props.sortByStat ||"OPS",
+          playerPool: props.playerPool || "qualified"
         }
         const url = `https://statsapi.mlb.com/api/v1/stats?stats=${params.stats}&group=${params.group}&season=${params.season}&gameType=${params.gameType}&limit=${params.limit}&sortStat=${params.sortStat}&playerPool=${params.playerPool}`;
     
@@ -64,7 +64,6 @@ function GetCards(){
     
     return (
     <div>
-      <NavBar/>
         <ol className="App">
         {players.length ? players.map((player, index)=>{
             return (
@@ -75,6 +74,7 @@ function GetCards(){
                 playerId={player.PlayerId}
                 teamId={player.TeamId}
                 name={player.Name}
+                position={player.Position}
                 stats={player}
                 />
             </li>
@@ -82,7 +82,6 @@ function GetCards(){
         }) :
         <p></p>}
         </ol>
-        <a href="/">HOME</a>
     </div>
     );
 }

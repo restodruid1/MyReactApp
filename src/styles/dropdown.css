@@ -1,0 +1,7 @@
+.dropdown {
+    position: absolute;
+    min-height: fit-content;
+    width: 300px;
+    z-index: 5;
+    background-color: grey;
+}

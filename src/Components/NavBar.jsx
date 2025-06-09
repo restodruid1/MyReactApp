@@ -1,7 +1,7 @@
 import React from "react";
 import '../styles/NavBar.css'
 import { Link } from "react-router-dom";
-import Dropdown from "./Dropdown";
+import DropdownStats from "./DropdownStats";
 
 function NavBar(){  
     /*
@@ -13,20 +13,12 @@ function NavBar(){
     });*/
     const [isStatsEntered, setIsStatsEntered] = React.useState(false);
     const [isTeamsEntered, setIsTeamsEntered] = React.useState(false);
-    const testData = [
+    const date = new Date();
+    const year = date.getFullYear();
+    const hitting = [
         {
-            title:"hitters",
-            year: 2025,
-            route:"/hitters"
-        },
-        {
-            title:"hitters",
-            year: 2024,
-            route:"/hitters"
-        },
-        {
-            title:"hitters",
-            year: 2023,
+            title:"Hitting",
+            years: [year, year-1, year-2,year-3,year-4],
             route:"/hitters"
         }
     ]
@@ -40,15 +32,8 @@ function NavBar(){
             </div>
             <div className="nav-items" onMouseEnter={()=>setIsStatsEntered(true)} onMouseLeave={()=>setIsStatsEntered(false)}>
                 <p className="nav-stats">Stats</p>
-                {/* {isStatsEntered  && (
-                    <Dropdown
-                    title={"hitters"}
-                    route={"/hitters"}
-                    content={"2025"}/>
-                )}   */}
                 {isStatsEntered && (
-                    <Dropdown 
-                    data={testData}/>
+                    <DropdownStats/>
                 )
                 }
 
@@ -56,8 +41,7 @@ function NavBar(){
             <div className="nav-items" onMouseEnter={()=>setIsTeamsEntered(true)} onMouseLeave={()=>setIsTeamsEntered(false)}>
                 <p className="nav-stats">Teams</p>
                 {isTeamsEntered  && (
-                    <Dropdown 
-                    data={testData}/>
+                    <DropdownStats/>
                 )}  
             </div>
         </nav>
