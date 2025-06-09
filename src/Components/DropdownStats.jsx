@@ -14,7 +14,7 @@ function DropdownStats(props){
         {
             title:"Pitching",
             years: [year, year-1, year-2,year-3,year-4],
-            route:"/pitching"
+            route:"/pitchers"
         }
     ]
     
@@ -32,7 +32,7 @@ function DropdownStats(props){
         <div className="dropdown">
             {stats.map((category, index)=>{
                 return(
-                    <div>
+                    <div key={index}>
                         <p style={{display:"inline"}}>{category.title} </p>
                         {category.years.map((seasonYear, index)=>{
                             return (
