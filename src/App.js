@@ -3,6 +3,7 @@ import './styles/App.css';
 import React from "react";
 import GetPositionPlayerCards from './Components/GetPositionPlayerCards';
 import GetPitcherCards from './Components/GetPitcherCards';
+import TeamPage from './Components/TeamPage'; 
 import Home from './Components/Home';
 import NavBar from './Components/NavBar';
 import Footer from './Components/Footer';
@@ -24,6 +25,7 @@ function App() {
           <Route path='/' element={<Home />}/>
           <Route path='/hitters' element={<GetPositionPlayerCards />}/>
           <Route path='/pitchers' element={<GetPitcherCards />}/>
+          <Route path='/team/:teamName' element={<TeamPage />}/>
         </Routes>
       <Footer />
     </BrowserRouter>

@@ -1,26 +1,36 @@
 import React from "react"; 
 import { Link } from "react-router-dom";
+import { teams } from "./PlayerCard";
 
 function DropdownTeams(){
+    const teamIds = Object.keys(teams);
+    console.log(teamIds);
+    const divisions = [
+        {"NL West": ["D-backs","Dodgers","Giants","Padres","Rockies"]},
+        {"NL East": ["Braves","Marlins","Mets","Nationals","Phillies"]},
+        {"NL Central": ["Brewers","Cardinals","Cubs","Pirates","Reds"]},
+        {"AL West": ["Angels","Astros","Athletics","Mariners","Rangers"]},
+        {"AL East": ["Blue Jays","Orioles","Rays","Red Sox","Yankees"]},
+        {"AL Central": ["Guardians","Royals","Tigers","Twins","White Sox"]},
+    ]
+    
     return (
-            <div 
-                className="dropdown" 
-            >
-                <p style={{display:"inline"}}>{title} </p>
-                {dataYears.map((seasonYear, index)=>{
+        <div className="dropdown">
+             <div>
+                {divisions.map((divisionObj, index) => {
+                    const [divisionName, teams] = Object.entries(divisionObj)[0];
                     return (
-                        <p
-                        key={index}
-                        style={{display: "inline"}}
-                        >
-                            <Link to={route} state={{year:seasonYear}}>
-                                {dataYears.length - 1 === index ? seasonYear : `${seasonYear},`} 
-                            </Link>
-                        </p>
-                    )
+                    <div key={index}>
+                        <h2>{divisionName}</h2>
+                        {teams.map((team, i) => (
+                            <p key={i}><Link to={`/team/${team}`}>{team}</Link></p>
+                        ))}
+                    </div>
+                    );
                 })}
-            </div> 
-        );
+            </div>
+        </div>
+    );
 }
 
 export default DropdownTeams;

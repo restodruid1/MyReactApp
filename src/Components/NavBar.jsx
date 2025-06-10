@@ -2,6 +2,7 @@ import React from "react";
 import '../styles/NavBar.css'
 import { Link } from "react-router-dom";
 import DropdownStats from "./DropdownStats";
+import DropdownTeams from "./DropdownTeams";
 
 function NavBar(){  
     /*
@@ -41,7 +42,7 @@ function NavBar(){
             <div className="nav-items" onMouseEnter={()=>setIsTeamsEntered(true)} onMouseLeave={()=>setIsTeamsEntered(false)}>
                 <p className="nav-stats">Teams</p>
                 {isTeamsEntered  && (
-                    <DropdownStats/>
+                    <DropdownTeams/>
                 )}  
             </div>
         </nav>

@@ -18,16 +18,6 @@ function DropdownStats(props){
         }
     ]
     
-    
-    
-    //const propsArr = [props];
-    //console.log(propsArr[0]);
-    // console.log(props.data);
-    // const dataYears = props.data[0].years;
-    // console.log(dataYears);
-    // const title = props.data[0].title;
-    // const route = props.data[0].route;
-    
     return (
         <div className="dropdown">
             {stats.map((category, index)=>{

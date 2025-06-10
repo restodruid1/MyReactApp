@@ -61,7 +61,7 @@ function GetPitcherCards(props){
     
     return(
     <div>
-        <h1>Sorted by {props.sortByStat ? props.sortByStat : "ERA"}</h1>
+        {!location.state ? <p></p> :<h1>Sorted by {props.sortByStat ? props.sortByStat : "ERA"}</h1>}
         <ol className="App">
         {players.length ? players.map((player, index)=>{
             return (
