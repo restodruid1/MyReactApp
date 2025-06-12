@@ -1,5 +1,7 @@
 import React from "react"; 
-import { Link } from "react-router-dom";
+import { teams } from "./PlayerCard";
+import CustomLink from "./CustomLink";
+import "../styles/dropdown.css";
 
 function DropdownStandings() {
     const [nlWest, setNLWest] = React.useState([]);
@@ -8,7 +10,8 @@ function DropdownStandings() {
     const [alEast, setALEast] = React.useState([]);
     const [nlCentral, setNLCentral] = React.useState([]);
     const [alCentral, setALCentral] = React.useState([]);
-    
+    const [hoverColor, setHoverColor] = React.useState(null);
+
     const divisions = [
         {"NL West": nlWest},
         {"AL West": alWest},
@@ -97,28 +100,34 @@ function DropdownStandings() {
         fetchAlStandingsData();
     },[]);
     
-    
+    function handleHover(){
+        setHoverColor();
+    }
 
     return (
         <div className="dropdown">
             {alCentral.len === 0 ? console.log(""): 
                 <div className="team-dd-container">
                 {divisions.map((divisionObj, index) => {
-                    const [divisionName, teams] = Object.entries(divisionObj)[0];
-                    // console.log(teams);
+                    const [divisionName, listOfTeams] = Object.entries(divisionObj)[0];
+                    // console.log(listOfTeams);
                     return (
                     // <div className="team-dd-flex-item" key={index}>
                         <table className="team-dd-flex-item" key={index}>
                             <tbody>
                                 <tr><td>{divisionName}</td></tr>
-                                    {teams.map((teamObj, i) => {
+                                    {listOfTeams.map((teamObj, i) => {
                                         const teamWins = teamObj.leagueRecord.wins;
                                         const teamLosses = teamObj.leagueRecord.losses;
                                         const gamesBack = teamObj.divisionGamesBack;
+                                        const teamName = teamIds[teamObj.team.id];
                                         return (
                                         <tr key={i}>
                                             <td>
-                                                <Link to={`/team/${teamIds[teamObj.team.id]}`}>{teamIds[teamObj.team.id]}</Link>
+                                                <CustomLink 
+                                                teamName={teamName}
+                                                color={teams[teamName].primaryColor}
+                                                />
                                             </td>
                                             <td>
                                                 <span>{teamWins}</span>

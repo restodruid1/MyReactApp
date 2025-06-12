@@ -30,7 +30,7 @@ function DropdownStats(props){
                                 key={index}
                                 style={{display: "inline"}}
                                 >
-                                    <Link to={category.route} state={{year:seasonYear}}>
+                                    <Link className="link-team" to={category.route} state={{year:seasonYear}}>
                                         {category.years.length - 1 === index ? seasonYear : `${seasonYear},`} 
                                     </Link>
                                 </p>

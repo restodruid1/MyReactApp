@@ -4,9 +4,9 @@ footer{
     /* color: white; */
 }
 
-.link:link {
-    color: red;
-}
-.link:visited {
+.link, .link:visited {
     color: black;
+}
+.link:hover{
+    color: white;
 }
