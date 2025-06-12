@@ -3,6 +3,7 @@ import '../styles/NavBar.css'
 import { Link } from "react-router-dom";
 import DropdownStats from "./DropdownStats";
 import DropdownTeams from "./DropdownTeams";
+import DropdownStandings from "./DropdownStandings";
 
 function NavBar(){  
     /*
@@ -14,6 +15,7 @@ function NavBar(){
     });*/
     const [isStatsEntered, setIsStatsEntered] = React.useState(false);
     const [isTeamsEntered, setIsTeamsEntered] = React.useState(false);
+    const [isStandingsEntered, setIsStandingsEntered] = React.useState(false);
     const date = new Date();
     const year = date.getFullYear();
     const hitting = [
@@ -43,6 +45,12 @@ function NavBar(){
                 <p className="nav-stats">Teams</p>
                 {isTeamsEntered  && (
                     <DropdownTeams/>
+                )}  
+            </div>
+            <div className="nav-items" onMouseEnter={()=>setIsStandingsEntered(true)} onMouseLeave={()=>setIsStandingsEntered(false)}>
+                <p className="nav-stats">Standings</p>
+                {isStandingsEntered  && (
+                    <DropdownStandings/>
                 )}  
             </div>
         </nav>

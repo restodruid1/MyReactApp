@@ -2,17 +2,17 @@ import React from "react";
 import PlayerStats from "./PlayerStats";
 
 const teams = {
-    "Angels": {teamId:108, logoImg: "url(/TeamLogos/Angels.svg)", primaryColor:"#003263", secondaryColor:"#ba0021" },
+    "Angels":  {teamId:108, logoImg: "url(/TeamLogos/Angels.svg)", primaryColor:"#003263", secondaryColor:"#ba0021" },
     "D-backs": {teamId:109, logoImg: "url(/TeamLogos/D-backs.svg)",  primaryColor:"#aa182c", secondaryColor:"#000000" },
     "Orioles": {teamId:110, logoImg: "url(/TeamLogos/Orioles.svg)", primaryColor:"#df4601", secondaryColor:"#000000" },
     "Red Sox": {teamId:111, logoImg: "url(/TeamLogos/RedSox.svg)", primaryColor:"#bd3039", secondaryColor:"#0d2b56" },
-    "Cubs": {teamId:112, logoImg: "url(/TeamLogos/Cubs.svg)", primaryColor:"#cc3433", secondaryColor:"#0e3386" },
-    "Reds": {teamId:113, logoImg: "url(/TeamLogos/Reds.svg)", primaryColor:"#c6011f", secondaryColor:"#ffffff" },
+    "Cubs":    {teamId:112, logoImg: "url(/TeamLogos/Cubs.svg)", primaryColor:"#cc3433", secondaryColor:"#0e3386" },
+    "Reds":    {teamId:113, logoImg: "url(/TeamLogos/Reds.svg)", primaryColor:"#c6011f", secondaryColor:"#ffffff" },
     "Guardians": {teamId:114, logoImg: "url(/TeamLogos/Guardians.svg)", primaryColor:"#002b5c", secondaryColor:"#e31937" },
     "Rockies": {teamId:115, logoImg: "url(/TeamLogos/Rockies.svg)", primaryColor:"#000000", secondaryColor:"#333367" },
-    "Tigers": {teamId:116, logoImg: "url(/TeamLogos/Tigers.svg)", primaryColor:"#0c2c56", secondaryColor:"#ffffff" },
-    "Astros": {teamId:117, logoImg: "url(/TeamLogos/Astros.svg)", primaryColor:"#002d62", secondaryColor:"#eb6e1f" },
-    "Royals": {teamId:118, logoImg: "url(/TeamLogos/Royals.svg)",  primaryColor:"#004687", secondaryColor:"#ffffff" },
+    "Tigers":  {teamId:116, logoImg: "url(/TeamLogos/Tigers.svg)", primaryColor:"#0c2c56", secondaryColor:"#ffffff" },
+    "Astros":  {teamId:117, logoImg: "url(/TeamLogos/Astros.svg)", primaryColor:"#002d62", secondaryColor:"#eb6e1f" },
+    "Royals":  {teamId:118, logoImg: "url(/TeamLogos/Royals.svg)",  primaryColor:"#004687", secondaryColor:"#ffffff" },
     "Dodgers": {teamId:119, logoImg: "url(/TeamLogos/Dodgers.svg)", primaryColor:"#005a9c", secondaryColor:"#ffffff" },
     "Nationals": {teamId:120, logoImg: "url(/TeamLogos/Nationals.svg)", primaryColor:"#ab0003", secondaryColor:"#ffffff" },
     "Mets": {teamId:121, logoImg: "url(/TeamLogos/Mets.svg)", primaryColor:"#ff5910", secondaryColor:"#061e7e" },
