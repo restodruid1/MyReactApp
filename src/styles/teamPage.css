@@ -1,0 +1,26 @@
+.team-logo {
+    width: 200px;
+    height: 200px;
+}
+
+.team-flex-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 300px;
+    background-color: lightgray;
+    justify-content: space-evenly;
+}
+
+.teamInfo-container{
+    display: flex;
+}
+
+.playercard-container{
+    display: flex;
+    align-items: center;
+}
+
+.playerposition-container{
+    display: flex;
+    gap: 10px;
+}

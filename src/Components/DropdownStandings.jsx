@@ -57,18 +57,18 @@ function DropdownStandings() {
         const fetchNlStandingsData = async () => {
             const response = await fetch("https://statsapi.mlb.com/api/v1/standings?leagueId=104");
             const data = await response.json();
-                
+            
             data.records.map((divisions, index)=>{
                 // console.log(divisions[index]);                
                 if (divisions.division.id === 203) {    // NL West
                     setNLWest(divisions.teamRecords);
-                    
+                    localStorage.setItem("NL West", JSON.stringify(divisions));
                 } else if (divisions.division.id === 204) { // NL East
                     setNLEast(divisions.teamRecords);
-                    
+                    localStorage.setItem("NL East", JSON.stringify(divisions));
                 } else if (divisions.division.id === 205) { // NL Central
                     setNLCentral(divisions.teamRecords);
-                    
+                    localStorage.setItem("NL Central", JSON.stringify(divisions));
                 }
                 // console.log(divisions.division.id);
             })   
@@ -81,17 +81,17 @@ function DropdownStandings() {
         const fetchAlStandingsData = async () => {
             const response = await fetch("https://statsapi.mlb.com/api/v1/standings?leagueId=103");
             const data = await response.json();
-                
+            
             data.records.map((divisions, index)=>{
                 if (divisions.division.id === 200) {    // AL West
                     setALWest(divisions.teamRecords);
-                    
+                    localStorage.setItem("AL West", JSON.stringify(divisions));
                 } else if (divisions.division.id === 201) { // AL East
                     setALEast(divisions.teamRecords);
-                    
+                    localStorage.setItem("AL East", JSON.stringify(divisions));
                 } else if (divisions.division.id === 202) { // AL Central
                     setALCentral(divisions.teamRecords);
-                    
+                    localStorage.setItem("AL Central", JSON.stringify(divisions));
                 }
                 // console.log(divisions);
             })   
