@@ -14,7 +14,7 @@ function TeamPage(){
     console.log(teamName);
     console.log(league);
     const stripBlankUrl = teamName.replace(/\s+/g,"");
-    const position = ["First Base", "Second Base", "shortstop", "Third Base", "Outfield", "Catcher", "Pitcher"];
+    const position = ["Infield", "Outfield", "Catcher", "Pitcher"];
     
     
     
@@ -53,11 +53,8 @@ function TeamPage(){
 
             const catchers = [];
             const pitchers = [];
-            const firstbase = [];
-            const secondbase = [];
-            const thirdbase = [];
-            const shortstop = [];
             const outfield = [];
+            const infield = [];
 
             roster.map((player)=>{
                 if (player.position.name === "Catcher"){
@@ -66,17 +63,11 @@ function TeamPage(){
                     pitchers.push(player);
                 } else if(player.position.name === "Outfielder"){
                     outfield.push(player);
-                } else if(player.position.name === "Shortstop"){
-                    shortstop.push(player);
-                } else if(player.position.name === "First Base"){
-                    firstbase.push(player);
-                } else if(player.position.name === "Second Base"){
-                    secondbase.push(player);
-                } else if(player.position.name === "Third Base"){
-                    thirdbase.push(player);
+                } else {
+                    infield.push(player);
                 }
             })
-            setActiveRoster([firstbase, secondbase, shortstop, thirdbase, outfield, catchers, pitchers]);
+            setActiveRoster([infield, outfield, catchers, pitchers]);
         };
         fetchRosterData();
     },[teamName]);
@@ -109,15 +100,17 @@ function TeamPage(){
                 {activeRoster.map((positionArr, index)=>{
                     return (
                         <div className="playerposition-container" key={index}>
-                            <h4>{position[index]}</h4>    
-                            {positionArr.map((player,index)=>{
-                                return (
-                                    <TeamPlayerCard 
-                                    key={index}
-                                    playerData={player}
-                                    />
-                                )
-                            })}
+                            <h4>{position[index]}</h4>
+                            <div className="playercard-container">    
+                                {positionArr.map((player,index)=>{
+                                    return (
+                                        <TeamPlayerCard 
+                                        key={index}
+                                        playerData={player}
+                                        />
+                                    )
+                                })}
+                            </div>
                         </div>
                     )
                 })}
