@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { teams } from "./PlayerCard";
 import TeamPlayerCard from "./TeamPlayerCard";
 import "../styles/teamPage.css"
+import Games from "./Games";
 
 function TeamPage(){
     const [activeRoster, setActiveRoster] = React.useState([]);
@@ -21,22 +22,42 @@ function TeamPage(){
 
     React.useEffect(()=>{
         const getTeamData = async()=>{
-            // I need to match the team division to the cached division and find the team by team ID
-            const cached = localStorage.getItem(league);
-            if (cached) {
-                const cachedDivisionData = JSON.parse(cached);
-                const { teamRecords } = cachedDivisionData;
-                teamRecords.map((teams,index)=>{
-                    if (teams.team.id === teamId){
-                        console.log("TEAM: " + teams.team.name);
-                        console.log(teams.leagueRecord);
-                        setTeamData([teams]);
-                    }
-                    // console.log(teams, index);
-                })
-            } else {
+            let cached = localStorage.getItem(league);
+            if (!cached) {
                 console.log("Cached not available");
+                const response = await fetch("https://statsapi.mlb.com/api/v1/standings?leagueId=103,104");
+                const data = await response.json();
+                // console.log(data);
+                const {records} = data;
+                
+                records.map((record)=>{
+                    // console.log(record);
+                    if (record.division.id === 200) {
+                        localStorage.setItem("AL West", JSON.stringify(record));
+                    } else if (record.division.id === 201) {    
+                        localStorage.setItem("AL East", JSON.stringify(record));
+                    } else if (record.division.id === 202) { 
+                        localStorage.setItem("AL Central", JSON.stringify(record));
+                    } else if (record.division.id === 203) { 
+                        localStorage.setItem("NL West", JSON.stringify(record));
+                    } else if (record.division.id === 204) { 
+                        localStorage.setItem("NL East", JSON.stringify(record));
+                    } else if (record.division.id === 205) { 
+                        localStorage.setItem("NL Central", JSON.stringify(record));
+                    }
+                })  
             }
+            cached = localStorage.getItem(league);
+            const cachedDivisionData = JSON.parse(cached);
+            const { teamRecords } = cachedDivisionData;
+            teamRecords.map((teams,index)=>{
+                if (teams.team.id === teamId){
+                    console.log("TEAM: " + teams.team.name);
+                    console.log(teams.leagueRecord);
+                    setTeamData([teams]);
+                }
+                // console.log(teams, index);
+            }) 
         }
         getTeamData();
     },[teamName]);
@@ -47,9 +68,9 @@ function TeamPage(){
         const fetchRosterData = async()=>{
             const response = await fetch(`https://statsapi.mlb.com/api/v1/teams/${teamId}/roster`);
             const data = await response.json();
-            console.log(data);
+            // console.log(data);
             const { roster } = data;
-            console.log(roster);
+            // console.log(roster);
 
             const catchers = [];
             const pitchers = [];
@@ -95,12 +116,13 @@ function TeamPage(){
             
                 }
             </div>
-            <h1>Active ROSTER</h1>
+            <Games teamId={teamId}/>
+            <h1>Active Roster</h1>
             <div className="team-flex-container" style={{border: `5px solid ${teams[teamName].primaryColor}`}}>
                 {activeRoster.map((positionArr, index)=>{
                     return (
                         <div className="playerposition-container" key={index}>
-                            <h4>{position[index]}</h4>
+                            <h3>{position[index]}</h3>
                             <div className="playercard-container">    
                                 {positionArr.map((player,index)=>{
                                     return (

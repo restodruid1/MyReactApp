@@ -6,7 +6,7 @@ function TeamPlayerCard(props){
     const {person} = props.playerData;
     const {jerseyNumber} = props.playerData;
     const { position } = props.playerData;
-    console.log(person,jerseyNumber,position);
+    // console.log(person,jerseyNumber,position);
     
     
     return (
@@ -14,7 +14,7 @@ function TeamPlayerCard(props){
             {/* Turn this into a player card with their image */}
             <img className="player-img" src={`https://content.mlb.com/images/headshots/current/60x60/${person.id}.png`}/>
             <p>{playerData.person.fullName}</p>
-            <p>#{playerData.jerseyNumber}</p>
+            <p><span>{position.abbreviation}/#{jerseyNumber}</span></p>
             {/* <p>{playerData.position.name}</p> */}
             
         </div>
