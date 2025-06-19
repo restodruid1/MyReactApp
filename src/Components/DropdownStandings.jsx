@@ -3,6 +3,40 @@ import { teams } from "./PlayerCard";
 import CustomLink from "./CustomLink";
 import "../styles/dropdown.css";
 
+const teamIds = {
+    108:"Angels",
+    109:"D-backs",
+    110:"Orioles",
+    111:"Red Sox",
+    112:"Cubs",
+    113:"Reds",
+    114:"Guardians",
+    115:"Rockies",
+    116:"Tigers",
+    117:"Astros",
+    118:"Royals",
+    119:"Dodgers",
+    120:"Nationals",
+    121:"Mets",
+    133:"Athletics",
+    134:"Pirates",
+    135:"Padres",
+    136:"Mariners",
+    137:"Giants",
+    138:"Cardinals",
+    139:"Rays",
+    140:"Rangers",
+    141:"Blue Jays",
+    142:"Twins",
+    143:"Phillies",
+    144:"Braves",
+    145:"White Sox",
+    146:"Marlins",
+    147:"Yankees",
+    158:"Brewers",
+};
+
+
 function DropdownStandings() {
     const [nlWest, setNLWest] = React.useState([]);
     const [alWest, setALWest] = React.useState([]);
@@ -20,38 +54,7 @@ function DropdownStandings() {
         {"NL Central": nlCentral},
         {"AL Central": alCentral},
     ]
-    const teamIds = {
-        108:"Angels",
-        109:"D-backs",
-        110:"Orioles",
-        111:"Red Sox",
-        112:"Cubs",
-        113:"Reds",
-        114:"Guardians",
-        115:"Rockies",
-        116:"Tigers",
-        117:"Astros",
-        118:"Royals",
-        119:"Dodgers",
-        120:"Nationals",
-        121:"Mets",
-        133:"Athletics",
-        134:"Pirates",
-        135:"Padres",
-        136:"Mariners",
-        137:"Giants",
-        138:"Cardinals",
-        139:"Rays",
-        140:"Rangers",
-        141:"Blue Jays",
-        142:"Twins",
-        143:"Phillies",
-        144:"Braves",
-        145:"White Sox",
-        146:"Marlins",
-        147:"Yankees",
-        158:"Brewers",
-    }
+    
 
     React.useEffect(()=>{
         const fetchNlStandingsData = async () => {
@@ -148,3 +151,4 @@ function DropdownStandings() {
 }
 
 export default DropdownStandings;
+export {teamIds};

@@ -14,7 +14,7 @@ function TeamPage(){
     console.log(teamId);
     console.log(teamName);
     console.log(league);
-    const stripBlankUrl = teamName.replace(/\s+/g,"");
+    const teamUrl = teamName.replace(/\s+/g,"");
     const position = ["Infield", "Outfield", "Catcher", "Pitcher"];
     
     
@@ -96,7 +96,7 @@ function TeamPage(){
     return (
         <div>
             <div className="teamInfo-container">
-                <img className="team-logo" src={`/TeamLogos/${stripBlankUrl}.svg`} />
+                <img className="team-logo" src={`/TeamLogos/${teamUrl}.svg`} />
                 {!teamData.length > 0 ? console.log("No Team Data") : 
                 (()=>{
                     const teamInfo =  teamData[0];
