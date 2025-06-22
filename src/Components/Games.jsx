@@ -83,8 +83,8 @@ function Games(props){
                         <div style={{flex:"1"}}>
                             {game.status.statusCode === "F"? <p style={{textAlign:"center"}}>FINAL {date}</p> : <p style={{textAlign:"center",color:"red"}}>LIVE {date}</p>}    
                             <div style={{display:"flex"}}>
-                                <p style={{flex:"1 1 48%"}}>{teamIds[away.team.id]} {away.score}</p>
-                                <p>{teamIds[home.team.id]} {home.score}</p>
+                                <p style={{flex:"1 1 48%", textAlign:"center"}}>{teamIds[away.team.id]} {away.score}</p>
+                                <p style={{flex:"1 1 48%", textAlign:"center"}}>{teamIds[home.team.id]} {home.score}</p>
                             </div>
                         </div>
                         :

@@ -1,6 +1,7 @@
 import React from "react";
 import '../styles/NavBar.css'
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import DropdownStats from "./DropdownStats";
 import DropdownTeams from "./DropdownTeams";
 import DropdownStandings from "./DropdownStandings";
@@ -18,6 +19,7 @@ function NavBar(){
     const [isStandingsEntered, setIsStandingsEntered] = React.useState(false);
     const date = new Date();
     const year = date.getFullYear();
+    const navigate = useNavigate();
     const hitting = [
         {
             title:"Hitting",
@@ -26,28 +28,37 @@ function NavBar(){
         }
     ]
 
+    function handleClick(event){
+        // console.log("event clicked: " + event);
+        navigate("/");
+    }
+
     return (
         <nav className="navbar-home">
+            <img 
+            style={{height:"50px", position:"absolute", left:"0px", borderRadius:"15%", cursor:"pointer"}}
+            src="/baseball-logo.png"
+            onClick={handleClick}
+            />
             <div className="nav-items">
-                <label>Search For a Player</label>
-                <input required type="search "/>
+                {/* <label>Search For a Player</label> */}
+                <input required type="search" placeholder="Player Search"/>
                 <button>Search</button>
             </div>
-            <div className="nav-items" onMouseEnter={()=>setIsStatsEntered(true)} onMouseLeave={()=>setIsStatsEntered(false)}>
+            <div style={isStatsEntered ? {backgroundColor:"white"} : {backgroundColor:"darkblue"}} className="nav-items" onMouseEnter={()=>setIsStatsEntered(true)} onMouseLeave={()=>setIsStatsEntered(false)}>
                 <p className="nav-stats">Stats</p>
                 {isStatsEntered && (
                     <DropdownStats/>
-                )
-                }
+                )}
 
             </div>
-            <div className="nav-items" onMouseEnter={()=>setIsTeamsEntered(true)} onMouseLeave={()=>setIsTeamsEntered(false)}>
+            <div style={isTeamsEntered ? {backgroundColor:"white"} : {backgroundColor:"darkblue"}} className="nav-items" onMouseEnter={()=>setIsTeamsEntered(true)} onMouseLeave={()=>setIsTeamsEntered(false)}>
                 <p className="nav-stats">Teams</p>
                 {isTeamsEntered  && (
                     <DropdownTeams/>
                 )}  
             </div>
-            <div className="nav-items" onMouseEnter={()=>setIsStandingsEntered(true)} onMouseLeave={()=>setIsStandingsEntered(false)}>
+            <div style={isStandingsEntered ? {backgroundColor:"white"} : {backgroundColor:"darkblue"}} className="nav-items" onMouseEnter={()=>setIsStandingsEntered(true)} onMouseLeave={()=>setIsStandingsEntered(false)}>
                 <p className="nav-stats">Standings</p>
                 {isStandingsEntered  && (
                     <DropdownStandings/>

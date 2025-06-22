@@ -1,12 +1,13 @@
 .navbar-home {
     display: flex;
-    justify-content: start;
+    justify-content: center;
     align-items: end;
-    background-color: blue;
-    margin: 0% 25%;
+    background-color: darkblue;
+    /* margin: 0% 25%; */
     gap: 20px;
+    position: relative;
 }
-.nav-items {
+/* .nav-items {
     border: 2px solid black;
-}
+} */
 
