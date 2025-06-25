@@ -23,12 +23,10 @@ function TodaysGames(){
             } catch (e) {
                 console.log(e);
             }
-            // const response = await fetch("https://statsapi.mlb.com/api/v1.1/game/777402/feed/live");
-            // const data = await response.json();
-            // console.log(data);
+            
         }
         getGames();
-        const interval = setInterval(getGames, 150000); // poll every 15s
+        const interval = setInterval(getGames, 150000); 
 
         return () => clearInterval(interval); // clean up on unmount
 

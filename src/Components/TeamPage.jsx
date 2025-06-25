@@ -11,9 +11,9 @@ function TeamPage(){
     const { teamName } = useParams();
     const { teamId } = teams[teamName];
     const { league } = teams[teamName];
-    console.log(teamId);
-    console.log(teamName);
-    console.log(league);
+    // console.log(teamId);
+    // console.log(teamName);
+    // console.log(league);
     const teamUrl = teamName.replace(/\s+/g,"");
     const position = ["Infield", "Outfield", "Catcher", "Pitcher"];
     
@@ -24,7 +24,7 @@ function TeamPage(){
         const getTeamData = async()=>{
             let cached = localStorage.getItem(league);
             if (!cached) {
-                console.log("Cached not available");
+                // console.log("Cached not available");
                 const response = await fetch("https://statsapi.mlb.com/api/v1/standings?leagueId=103,104");
                 const data = await response.json();
                 // console.log(data);
@@ -137,10 +137,10 @@ function TeamPage(){
                         </div>
                     )
                 })}
-                {/* {activeRoster.length > 0 ? <p>{activeRoster[0].person.fullName}</p> : <p>hello</p>} */}
+                
             </div>
         </div>
     );
 }
-// https://www.mlbstatic.com/team-logos/team-cap-on-light/109.svg
+
 export default TeamPage;

@@ -24,16 +24,16 @@ function Games(props){
             let year, month, day;
             
             estDate.forEach(({ type, value }) => {
-            if (type === "year") year = value;
-            if (type === "month") month = value;
-            if (type === "day") day = value;
+                if (type === "year") year = value;
+                if (type === "month") month = value;
+                if (type === "day") day = value;
             });
             const startDate = `${year}-${month}-${day}`;
             console.log("STARTDATE: " + startDate);
             estDatePlus5.forEach(({ type, value }) => {
-            if (type === "year") year = value;
-            if (type === "month") month = value;
-            if (type === "day") day = value;
+                if (type === "year") year = value;
+                if (type === "month") month = value;
+                if (type === "day") day = value;
             });
             const endDate = `${year}-${month}-${day}`;
             
@@ -52,7 +52,7 @@ function Games(props){
             {/* <h2 style={{border:"1px solid black"}}>Upcoming Games</h2> */}
             {nextGame.map((date)=>{
                 return (date.games.map((game, index)=>{
-                    console.log(game);
+                    // console.log(game);
                     // const homeTeam = game.teams.home.team.id === teamId ? true : false;
                     const {home} = game.teams;
                     const {away} = game.teams;
@@ -70,7 +70,7 @@ function Games(props){
                         };
 
                     let estString = new Intl.DateTimeFormat("en-US", options).format(utcDate);
-                    console.log(estString);
+                    // console.log(estString);
                     const splitDateStr = estString.split(",").map(s => s.trim());
                     const date = splitDateStr[0].slice(0,-5);
                     const time = splitDateStr[1].slice(0,4) + splitDateStr[1].slice(7);

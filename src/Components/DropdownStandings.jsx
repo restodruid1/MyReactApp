@@ -44,7 +44,6 @@ function DropdownStandings() {
     const [alEast, setALEast] = React.useState([]);
     const [nlCentral, setNLCentral] = React.useState([]);
     const [alCentral, setALCentral] = React.useState([]);
-    const [hoverColor, setHoverColor] = React.useState(null);
 
     const divisions = [
         {"NL West": nlWest},
@@ -103,9 +102,7 @@ function DropdownStandings() {
         fetchAlStandingsData();
     },[]);
     
-    function handleHover(){
-        setHoverColor();
-    }
+    
 
     return (
         <div className="dropdown">

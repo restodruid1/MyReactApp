@@ -1,6 +1,5 @@
 import React from "react";
 import '../styles/NavBar.css'
-// import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import DropdownStats from "./DropdownStats";
 import DropdownTeams from "./DropdownTeams";
@@ -36,7 +35,6 @@ function NavBar(){
             onClick={handleClick}
             />
             <div className="nav-items">
-                {/* <label>Search For a Player</label> */}
                 <input required type="search" placeholder="Player Search"/>
                 <button>Search</button>
             </div>

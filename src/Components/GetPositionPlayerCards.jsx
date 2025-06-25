@@ -24,7 +24,7 @@ function GetCards(props){
         try {
           const response = await fetch(url);
           const data = await response.json();
-          console.log(data);
+          // console.log(data);
           
           const playersData = data.stats[0].splits; 
           const results = playersData.map(player => {
