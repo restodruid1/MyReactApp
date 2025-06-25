@@ -1,7 +1,7 @@
 import React from "react";
 import PlayerCard from "./PlayerCard";
 import { useLocation } from 'react-router-dom';
-import NavBar from "./NavBar";
+// import NavBar from "./NavBar";
 
 function GetCards(props){
     const [players, setPlayers] = React.useState([]);

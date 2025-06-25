@@ -52,7 +52,8 @@ function TodaysGames(){
                 hour12: true,
                 };
                 const formattedGameTime = utcDate.toLocaleString("en-US", options);
-
+                // console.log(game);
+                
                 if (abstractGameCode === "P") { //Game is in Preview
                     return (
                         <div key={index} style={{minWidth:"190px",marginLeft:"10px",fontSize: "small", borderRadius:"10px", border:"2px solid grey"}}>

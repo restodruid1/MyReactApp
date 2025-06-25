@@ -11,7 +11,7 @@ function TeamPlayerCard(props){
     
     return (
         <div className="playercard">
-            <img className="player-img" src={`https://content.mlb.com/images/headshots/current/60x60/${person.id}.png`}/>
+            <img className="player-img" alt="Player" src={`https://content.mlb.com/images/headshots/current/60x60/${person.id}.png`}/>
             <p>{playerData.person.fullName}</p>
             <p><span>{position.abbreviation}/#{jerseyNumber}</span></p>
         </div>

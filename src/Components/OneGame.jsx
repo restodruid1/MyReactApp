@@ -50,11 +50,17 @@ function OneGame(props){
     const homeTeamAbbr = currentGameData.gameData.teams.home.abbreviation;
     const homeRuns = currentGameData.liveData.linescore.teams.home.runs;
     const currentInning = currentGameData.liveData.linescore.currentInningOrdinal;
-    // console.log(currentGameData.liveData.plays.currentPlay.runnerIndex);
+    console.log(currentGameData);
+    
     return (
-        <div style={{display:"flex", border:"2px solid grey", borderRadius:"10px", marginLeft:"10px", minWidth:"190px"}}>
-            <div style={{display:"flex",flexDirection:"column", flex:"1 1 48%"}}>
-                <p>{currentGameData.liveData.linescore.isTopInning ? `Top ${currentInning}` :`Bot ${currentInning}`}</p>
+        <div style={{display:"flex", border:"2px solid grey", borderRadius:"10px", marginLeft:"10px", minWidth:"190px", alignItems:"end"}}>
+            <div style={{display:"flex",flexDirection:"column", flex:"1 1 48%", fontSize:"small"}}>
+                <p style={{margin:"0 0 0 2px", color:"grey"}}>
+                    {currentGameData.gameData.status.detailedState === "Warmup" ? 
+                    ("Warmup")
+                    : 
+                    (currentGameData.liveData.linescore.isTopInning ? `Top ${currentInning}` :`Bot ${currentInning}`)}
+                </p>
                 <div style={{display:"flex", justifyContent:"space-between"}}>
                     <img src={`/TeamLogos/${awayTeamName}.svg`} alt="team logo" style={{height:"20px", width:"20px",alignSelf:"center"}}/>
                     <p>{awayTeamAbbr}</p>
