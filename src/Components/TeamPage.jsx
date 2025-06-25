@@ -1,4 +1,4 @@
-import React, { act } from "react";
+import React from "react";
 import { useParams } from "react-router-dom";
 import { teams } from "./PlayerCard";
 import TeamPlayerCard from "./TeamPlayerCard";
@@ -30,7 +30,7 @@ function TeamPage(){
                 // console.log(data);
                 const {records} = data;
                 
-                records.map((record)=>{
+                records.forEach((record)=>{
                     // console.log(record);
                     if (record.division.id === 200) {
                         localStorage.setItem("AL West", JSON.stringify(record));
@@ -50,7 +50,7 @@ function TeamPage(){
             cached = localStorage.getItem(league);
             const cachedDivisionData = JSON.parse(cached);
             const { teamRecords } = cachedDivisionData;
-            teamRecords.map((teams,index)=>{
+            teamRecords.forEach((teams,index)=>{
                 if (teams.team.id === teamId){
                     console.log("TEAM: " + teams.team.name);
                     console.log(teams.leagueRecord);
@@ -60,7 +60,7 @@ function TeamPage(){
             }) 
         }
         getTeamData();
-    },[teamName]);
+    },[teamName,league,teamId]);
 
 
 
@@ -77,7 +77,7 @@ function TeamPage(){
             const outfield = [];
             const infield = [];
 
-            roster.map((player)=>{
+            roster.forEach((player)=>{
                 if (player.position.name === "Catcher"){
                     catchers.push(player);
                 } else if(player.position.name === "Pitcher"){
@@ -87,16 +87,17 @@ function TeamPage(){
                 } else {
                     infield.push(player);
                 }
-            })
+                
+        })
             setActiveRoster([infield, outfield, catchers, pitchers]);
         };
         fetchRosterData();
-    },[teamName]);
+    },[teamName,teamId]);
     
     return (
         <div>
             <div className="teamInfo-container">
-                <img className="team-logo" src={`/TeamLogos/${teamUrl}.svg`} />
+                <img className="team-logo" alt="Team Logo" src={`/TeamLogos/${teamUrl}.svg`} />
                 {!teamData.length > 0 ? console.log("No Team Data") : 
                 (()=>{
                     const teamInfo =  teamData[0];

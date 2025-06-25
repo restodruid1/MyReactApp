@@ -1,6 +1,6 @@
 import React from "react";
 import { teamIds } from "./DropdownStandings";
-import { teams } from "./PlayerCard";
+// import { teams } from "./PlayerCard";
 
 function Games(props){
     const [nextGame, setNextGame] = React.useState([]);
@@ -51,9 +51,9 @@ function Games(props){
         <div style={{display:"flex",  justifyContent:"space-between", flexWrap:"wrap"}}>
             {/* <h2 style={{border:"1px solid black"}}>Upcoming Games</h2> */}
             {nextGame.map((date)=>{
-                return (date.games.map((game)=>{
+                return (date.games.map((game, index)=>{
                     console.log(game);
-                    const homeTeam = game.teams.home.team.id === teamId ? true : false;
+                    // const homeTeam = game.teams.home.team.id === teamId ? true : false;
                     const {home} = game.teams;
                     const {away} = game.teams;
                     const utcDate = new Date(game.gameDate);
@@ -78,7 +78,7 @@ function Games(props){
                     opposingTeamName = opposingTeamName.replace(/\s+/g,"");
 
                     return (
-                    <div style={{border:"1px solid black" ,flex:"1"}}>
+                    <div key={index} style={{border:"1px solid black" ,flex:"1"}}>
                         {game.status.statusCode === "F" || game.status.statusCode === "I"? 
                         <div style={{flex:"1"}}>
                             {game.status.statusCode === "F"? <p style={{textAlign:"center"}}>FINAL {date}</p> : <p style={{textAlign:"center",color:"red"}}>LIVE {date}</p>}    
@@ -89,7 +89,7 @@ function Games(props){
                         </div>
                         :
                         <div style={{display:"flex", alignItems:"center", justifyContent:"center"}}>
-                            <img style={{width:"30px", height:"30px", objectFit:"contain"}} src={`/TeamLogos/${opposingTeamName}.svg`}/>
+                            <img style={{width:"30px", height:"30px", objectFit:"contain"}} alt="Team Logo" src={`/TeamLogos/${opposingTeamName}.svg`}/>
                             <p>
                                 <span>{date} {home.team.id === teamId ? <span>vs. {teamIds[away.team.id]}</span>: <span>@ {teamIds[home.team.id]}</span>}</span>
                                 <br />
