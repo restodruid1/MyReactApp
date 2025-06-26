@@ -56,7 +56,7 @@ function TodaysGames(){
                 
                 if (abstractGameCode === "P") { //Game is in Preview
                     return (
-                        <div key={index} style={{minWidth:"190px",marginLeft:"10px",fontSize: "small", borderRadius:"10px", border:"2px solid grey"}}>
+                        <div key={index} style={{minWidth:"200px",marginLeft:"10px",fontSize: "small", borderRadius:"10px", border:"2px solid grey"}}>
                             <div style={{display:"flex", flexDirection:"column", justifyContent:"center"}}>
                                 <p style={{marginBottom:"0", marginLeft:"2px",color:"darkGrey"}}>
                                     {formattedGameTime} ET
@@ -82,12 +82,12 @@ function TodaysGames(){
                     return <OneGame key={index} style={{flex:"1"}} liveGameData={game}/>
                 } else {    //Game is final or suspended
                     return (    
-                        <div key={index} style={{borderRadius:"10px",border:"2px solid grey",minWidth:"190px",marginLeft:"10px"}}>
+                        <div key={index} style={{borderRadius:"10px",border:"2px solid grey",minWidth:"200px",marginLeft:"10px"}}>
                             <p>Final</p>
-                            <p><img style={{width:"20px", height:"20px"}} alt="Team Logo" src={`/teamLogos/${awayTeamName}.svg`}/>
+                            <p style={{display:"flex"}}><img style={{width:"20px", height:"20px", alignSelf:"center"}} alt="Team Logo" src={`/teamLogos/${awayTeamName}.svg`}/>
                                 {game.teams.away.team.name} {game.teams.away.score}
                             </p>
-                            <p><img style={{width:"20px", height:"20px"}} alt="Team Logo" src={`/teamLogos/${homeTeamName}.svg`}/>
+                            <p style={{display:"flex"}}><img style={{width:"20px", height:"20px", alignSelf:"center"}} alt="Team Logo" src={`/teamLogos/${homeTeamName}.svg`}/>
                                 {game.teams.home.team.name} {game.teams.home.score}
                             </p>
                         </div>

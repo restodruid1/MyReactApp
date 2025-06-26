@@ -53,7 +53,7 @@ function OneGame(props){
     console.log(currentGameData);
     
     return (
-        <div style={{display:"flex", border:"2px solid grey", borderRadius:"10px", marginLeft:"10px", minWidth:"190px", alignItems:"end"}}>
+        <div style={{display:"flex", border:"2px solid grey", borderRadius:"10px", marginLeft:"10px", minWidth:"200px", alignItems:"end"}}>
             <div style={{display:"flex",flexDirection:"column", flex:"1 1 48%", fontSize:"small"}}>
                 <p style={{margin:"0 0 0 2px", color:"grey"}}>
                     {currentGameData.gameData.status.detailedState === "Warmup" ? 

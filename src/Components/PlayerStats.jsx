@@ -29,6 +29,7 @@ function PlayerStats(props){
                 <p className="stat">SB: <span className="player-name">{props.stats.SB}</span></p>
                 <p className="stat">AVG: <span className="player-name">{props.stats.AVG}</span></p>
                 <p className="stat">OBP: <span className="player-name">{props.stats.OBP}</span></p>
+                <p className="stat">SLG: <span className="player-name">{props.stats.SLG}</span></p>
                 <p className="stat">OPS: <span className="player-name">{props.stats.OPS}</span></p>
             </div>
         );

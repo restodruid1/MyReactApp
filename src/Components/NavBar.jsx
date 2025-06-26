@@ -29,7 +29,7 @@ function NavBar(){
     return (
         <nav className="navbar-home">
             <img 
-            style={{height:"50px", position:"absolute", left:"0px", borderRadius:"15%", cursor:"pointer"}}
+            style={{height:"50px", position:"absolute", left:"0px", marginLeft:"10px", borderRadius:"15%", cursor:"pointer"}}
             src="/baseball-logo.png"
             alt="Baseball Logo"
             onClick={handleClick}
