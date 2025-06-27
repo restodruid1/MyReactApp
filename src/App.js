@@ -7,6 +7,7 @@ import TeamPage from './Components/TeamPage';
 import Home from './Components/Home';
 import NavBar from './Components/NavBar';
 import Footer from './Components/Footer';
+import PlayerPage from './Components/PlayerPage';
 
 import {
   BrowserRouter,
@@ -26,6 +27,7 @@ function App() {
           <Route path='/hitters' element={<GetPositionPlayerCards />}/>
           <Route path='/pitchers' element={<GetPitcherCards />}/>
           <Route path='/team/:teamName' element={<TeamPage />}/>
+          <Route path='/player/:playerName/id/:playerId' element={<PlayerPage/>}/>
         </Routes>
       <Footer />
     </BrowserRouter>

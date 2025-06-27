@@ -50,7 +50,7 @@ function OneGame(props){
     const homeTeamAbbr = currentGameData.gameData.teams.home.abbreviation;
     const homeRuns = currentGameData.liveData.linescore.teams.home.runs;
     const currentInning = currentGameData.liveData.linescore.currentInningOrdinal;
-    console.log(currentGameData);
+    // console.log(currentGameData);
     
     return (
         <div style={{display:"flex", border:"2px solid grey", borderRadius:"10px", marginLeft:"10px", minWidth:"200px", alignItems:"end"}}>

@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import DropdownStats from "./DropdownStats";
 import DropdownTeams from "./DropdownTeams";
 import DropdownStandings from "./DropdownStandings";
+import PlayerSearch from "./PlayerSearch";
 
 function NavBar(){  
     /*
@@ -34,9 +35,8 @@ function NavBar(){
             alt="Baseball Logo"
             onClick={handleClick}
             />
-            <div className="nav-items">
-                <input required type="search" placeholder="Player Search"/>
-                <button>Search</button>
+            <div className="nav-items" style={{marginBottom:"5px"}}>
+                <PlayerSearch />
             </div>
             <div style={isStatsEntered ? {backgroundColor:"white", color:"black"} : {backgroundColor:"darkblue", color:"white"}} className="nav-items" onMouseEnter={()=>setIsStatsEntered(true)} onMouseLeave={()=>setIsStatsEntered(false)}>
                 <p className="nav-stats">Stats</p>
