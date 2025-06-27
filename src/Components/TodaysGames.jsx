@@ -62,14 +62,14 @@ function TodaysGames(){
                                     {formattedGameTime} ET
                                 </p>
                                 <div style={{display:"flex"}}>
-                                    <img style={{width:"20px", height:"20px",alignSelf:"center"}} alt="Team Logo" src={`/teamLogos/${awayTeamName}.svg`}/>
+                                    <img style={{width:"20px", height:"20px",alignSelf:"center"}} alt="Team Logo" src={`/TeamLogos/${awayTeamName}.svg`}/>
                                     <p>
                                         {game.teams.away.team.name} 
                                         <span style={{color:"grey", fontSize:"small", marginLeft:"5px"}}>{game.teams.away.leagueRecord.wins}-{game.teams.away.leagueRecord.losses}</span>
                                     </p>
                                 </div>
                                 <div style={{display:"flex"}}>
-                                    <img style={{width:"20px", height:"20px",alignSelf:"center"}} alt="Team Logo" src={`/teamLogos/${homeTeamName}.svg`}/>
+                                    <img style={{width:"20px", height:"20px",alignSelf:"center"}} alt="Team Logo" src={`/TeamLogos/${homeTeamName}.svg`}/>
                                     <p>
                                         {game.teams.home.team.name}
                                         <span style={{color:"grey", fontSize:"small", marginLeft:"5px"}}>{game.teams.home.leagueRecord.wins}-{game.teams.home.leagueRecord.losses}</span>
@@ -84,10 +84,10 @@ function TodaysGames(){
                     return (    
                         <div key={index} style={{borderRadius:"10px",border:"2px solid grey",minWidth:"200px",marginLeft:"10px"}}>
                             <p>Final</p>
-                            <p style={{display:"flex"}}><img style={{width:"20px", height:"20px", alignSelf:"center"}} alt="Team Logo" src={`/teamLogos/${awayTeamName}.svg`}/>
+                            <p style={{display:"flex"}}><img style={{width:"20px", height:"20px", alignSelf:"center"}} alt="Team Logo" src={`/TeamLogos/${awayTeamName}.svg`}/>
                                 {game.teams.away.team.name} {game.teams.away.score}
                             </p>
-                            <p style={{display:"flex"}}><img style={{width:"20px", height:"20px", alignSelf:"center"}} alt="Team Logo" src={`/teamLogos/${homeTeamName}.svg`}/>
+                            <p style={{display:"flex"}}><img style={{width:"20px", height:"20px", alignSelf:"center"}} alt="Team Logo" src={`/TeamLogos/${homeTeamName}.svg`}/>
                                 {game.teams.home.team.name} {game.teams.home.score}
                             </p>
                         </div>
