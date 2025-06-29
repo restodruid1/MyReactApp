@@ -7,7 +7,7 @@ import TeamPage from './Components/TeamPage';
 import Home from './Components/Home';
 import NavBar from './Components/NavBar';
 import Footer from './Components/Footer';
-import PlayerPage from './Components/PlayerPage';
+import PlayerPage from './Components/PlayerPage.tsx';
 
 import {
   BrowserRouter,
