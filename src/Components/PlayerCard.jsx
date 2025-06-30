@@ -49,7 +49,8 @@ function PlayerCard(props) {
     
     return (
     <div className="player-card" style={{boxShadow: `10px 5px ${teamColorPrim}`, backgroundColor: `${teamColorSec}`, backgroundImage: teamLogoUrl }}>
-        <img className="player-img" alt="Player" src={`https://content.mlb.com/images/headshots/current/60x60/${props.playerId}.png`}/>
+        {/* <img style={{imageRendering:"auto"}} className="player-img" alt="Player" src={`https://content.mlb.com/images/headshots/current/60x60/${props.playerId}.png`}/> */}
+        <img className="player-img" alt="Player" src={`https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_213,q_auto:best/v1/people/${props.playerId}/headshot/67/current`}/>
         {/* <img className="player-img" src={`https://midfield.mlbstatic.com/v1/people/${props.playerId}/spots/90`}/>  */}
         <PlayerStats stats={props.stats}/>
     </div>

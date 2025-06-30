@@ -30,12 +30,12 @@ function NavBar(){
     return (
         <nav className="navbar-home">
             <img 
-            style={{height:"50px", position:"absolute", left:"0px", marginLeft:"10px", borderRadius:"15%", cursor:"pointer"}}
+            style={{height:"50px", position:"absolute", left:"0px", margin:"2px 10px 2px 10px", marginLeft:"10px", borderRadius:"15%", cursor:"pointer"}}
             src="/baseball-logo.png"
             alt="Baseball Logo"
             onClick={handleClick}
             />
-            <div className="nav-items" style={{marginBottom:"5px"}}>
+            <div className="nav-items" style={{marginBottom:"14px"}}>
                 <PlayerSearch />
             </div>
             <div style={isStatsEntered ? {backgroundColor:"white", color:"black"} : {backgroundColor:"darkblue", color:"white"}} className="nav-items" onMouseEnter={()=>setIsStatsEntered(true)} onMouseLeave={()=>setIsStatsEntered(false)}>
