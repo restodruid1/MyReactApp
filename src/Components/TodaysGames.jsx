@@ -37,7 +37,10 @@ function TodaysGames(){
     if (todaysGames.length === 0) {
         return;
     }
-
+    const { gameType } = todaysGames[0];
+    if (gameType === "A") {
+        return;
+    }
     return (
         <div style={{display:"flex",justifyContent:"flex-start", marginTop:"5px",alignItems:"stretch",gap:"10px",flexWrap:"wrap"}}>
             {todaysGames.map((game, index)=>{
